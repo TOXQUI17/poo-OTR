@@ -13,8 +13,8 @@ public class PooOTR {
         
         // Tenemos que generar los objetos de las clases anteriores
         Usuario x=new Usuario();       
-        x.altura= 1.74f;
-        x.peso= 78f;
+        x.setAltura(1.74f);
+        x.setPeso(78f);
         
         Imc algo=new Imc();
         algo.u=x;
