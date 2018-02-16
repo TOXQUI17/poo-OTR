@@ -9,9 +9,10 @@ package poliejemplo;
  *
  * @author T-102
  */
-public interface ComportamientoAnimal {
+public class ServicioAnimales {
     
-    public void hacerRuido();
-    
-    
+    public void servicioHacerRuido(ComportamientoAnimal ca){
+ca.hacerRuido();
+
+}
 }

@@ -9,9 +9,11 @@ package poliejemplo;
  *
  * @author T-102
  */
-public interface ComportamientoAnimal {
-    
-    public void hacerRuido();
-    
+public class Raton extends Animal implements ComportamientoAnimal{
+    @Override
+    public void hacerRuido(){
+         System.out.println("iii-iii-iii");
+    }
+           
     
 }

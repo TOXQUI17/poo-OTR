@@ -20,5 +20,13 @@ public class Animal {
     public int getEdad() {
         return edad;
     }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
     
 }
