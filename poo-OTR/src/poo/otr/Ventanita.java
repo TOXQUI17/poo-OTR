@@ -5,6 +5,9 @@
  */
 package poo.otr;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author T-102
@@ -34,6 +37,12 @@ public class Ventanita extends javax.swing.JFrame {
         texto_P.setText("Peso");
 
         texto_T.setText("Altura");
+
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField2ActionPerformed(evt);
+            }
+        });
 
         text_R.setText("Resultado");
 
@@ -89,21 +98,35 @@ public class Ventanita extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void bott_CActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bott_CActionPerformed
-        // TODO add your handling code here:
-       
-        float peso= Float.parseFloat(jTextField1.getText());
-        float altura= Float.parseFloat(jTextField2.getText());
-        
-        Usuario u=new Usuario();
-        u.setPeso(peso);
-        u.setAltura(altura);
-        
-        Imc x=new Imc();
-        x.u=u;
-        
-        text_R.setText(x.calcular());
+        try {
+            // TODO add your handling code here:
+            
+            float peso= Float.parseFloat(jTextField1.getText());
+            float altura= Float.parseFloat(jTextField2.getText());
+            
+            Usuario u=new Usuario();
+            
+            // Los Validamos
+            ValidarCantidades.validarVslorNegativo(altura);
+            ValidarCantidades.validarVslorNegativo(peso);
+            
+            
+            u.setPeso(peso);
+            u.setAltura(altura);
+            
+            Imc x=new Imc();
+            x.u=u;
+            
+            text_R.setText(x.calcular());
+        } catch (NumeroNegativoException ex) {
+           text_R.setText(ex.getMessage());
+        }
         
     }//GEN-LAST:event_bott_CActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
      * @param args the command line arguments
