@@ -22,7 +22,7 @@ public class PersistenciaUsuario {
        //Para serializar el primer paso es generar el archivo fisico donde estara el
        //objeto tipo usuario      
        
-       File file= new File ("archivaldo.yoyo");
+       File file= new File ("archivaldo.yo");
         
 //Despues lo abrimos para escribir sobre el
        try{      
@@ -42,20 +42,22 @@ public class PersistenciaUsuario {
           //public void setU(Usuario u) {
          // this.u = u;
     }
-public Usuario recobrarUsuario(){
-       File file=new File("archivaldo.yoyo");
+
+   public  Usuario recobrarUsuario(){
+       File file=new File("archivaldo.yo");
        Usuario recobrado=null; 
       
        try{
        FileInputStream fis=new FileInputStream(file);
        ObjectInputStream ois =new ObjectInputStream(fis);
              
-       recobrado= {Usuario} ois.readObject();
+       recobrado= (Usuario) ois.readObject();
        
    }catch(Exception e){
        
    }
 return recobrado;
+}
 }
 
 
