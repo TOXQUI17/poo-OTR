@@ -1,39 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package threads1;
 
 import java.time.LocalTime;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class Relogito extends javax.swing.JFrame {
+/**
+ *
+ * @author T-102
+ */
+public class Ventanita extends javax.swing.JFrame {
 
-    public Relogito() {
+    /**
+     * Creates new form Ventanita
+     */
+    public Ventanita() {
         initComponents();
-        Thread t1=new Thread( new Runnable(){
+        setSize(500, 500);
+
+        Thread t1 = new Thread(new Runnable() {
             @Override
             public void run() {
-                
-                while(true){
+
+                int decremento = 0;
+
+                while (true) {
                     try {
-                         LocalTime tiempo = LocalTime.now();
-                        int hora = tiempo.getHour();
-                        int minuto = tiempo.getMinute();
-                        int segundo = tiempo.getSecond();
-                        jLabel1.setText("La hora es " + hora + ": " + minuto + ":" + segundo);
-//Dormir el thread
                         
+                        decremento=decremento+10;
+                        if (500-decremento<0)break;
+                        
+                        setSize(500-decremento, 500-decremento);
                         Thread.sleep(1000);
                     } catch (InterruptedException ex) {
-                      
+
                     }
                 }
             }
-            
+
         }
-        
         );
         t1.start();
-                
-
     }
 
     /**
@@ -45,25 +54,17 @@ public class Relogito extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(38, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(33, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
@@ -86,25 +87,24 @@ public class Relogito extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Relogito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Relogito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Relogito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Relogito.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventanita.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Relogito().setVisible(true);
+                new Ventanita().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
